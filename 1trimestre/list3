@@ -1,1 +1,5 @@
+let x =  parseInt(prompt("Digite o primeiro lado do triângulo: "));
+let y = parseInt(prompt("Digite o segundo lado do triângulo: "));
+let area = (x*y)/2;
+console.log(area)
 
