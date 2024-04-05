@@ -1,1 +1,5 @@
+let x = parseInt(prompt("Digite um número: "));
+let y = parseInt(prompt("Digite outro número: "));
+let resultado = x + y
+console.log(resultado)
 
