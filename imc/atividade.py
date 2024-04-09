@@ -11,10 +11,11 @@ elif calculadora_de_imc > 18.5 and calculadora_de_imc < 24.9:
 elif calculadora_de_imc > 25.0 and calculadora_de_imc < 29.9:
     print("Sobrepeso")
 elif calculadora_de_imc > 30.0 and calculadora_de_imc < 34.9:
-    print("Obesidade grau 1")
+    w = calculadora_de_imc * 0.2
+    print("Obesidade grau 1, precisa perder:",w)
 elif calculadora_de_imc > 35.0 and calculadora_de_imc < 39.9:
-    print("Obesidade grau 2 (severa)")
+    p = calculadora_de_imc * 0.2
+    print("Obesidade grau 2 (severa), precisa perder:",p)
 else:
     print("Obesidade grau 3 (mórbida)")
-
 
