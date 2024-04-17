@@ -1,1 +1,19 @@
+x = int(input("Digite sua nota na diciplina de linguagens, que esteja entre 0 a 1000:"))
+y = int(input("Digite sua nota na diciplina de códigos, que esteja entre 0 a 1000:"))
+w = int(input("Digite sua nota na diciplina de ciências humanas, que esteja entre 0 a 1000:"))
+z = int(input("Digite sua nota na diciplina de matématica, que esteja entre 0 a 1000:"))
+u = int(input("Digite sua nota na diciplina de ciências da natureza, que esteja entre 0 a 1000:"))
+v = int(input("Digite sua nota de redação, que esteja entre 0 a 1000:"))
 
+media = (x+y+w+z+u+v)/2
+
+while x or y or w or z or u or v < 0:
+    print("Nota inválida ou notas inválidas foram digitadas, digite novamente")
+    x = int(input("Digite sua nota na diciplina de linguagens, que esteja entre 0 a 1000:"))
+    y = int(input("Digite sua nota na diciplina de códigos, que esteja entre 0 a 1000:"))
+    w = int(input("Digite sua nota na diciplina de ciências humanas, que esteja entre 0 a 1000:"))
+    z = int(input("Digite sua nota na diciplina de matématica, que esteja entre 0 a 1000:"))
+    u = int(input("Digite sua nota na diciplina de ciências da natureza, que esteja entre 0 a 1000:"))
+    v = int(input("Digite sua nota de redação, que esteja entre 0 a 1000:"))
+
+    
