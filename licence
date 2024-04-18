@@ -5,15 +5,28 @@ z = int(input("Digite sua nota na diciplina de matématica, que esteja entre 0 a
 u = int(input("Digite sua nota na diciplina de ciências da natureza, que esteja entre 0 a 1000:"))
 v = int(input("Digite sua nota de redação, que esteja entre 0 a 1000:"))
 
-media = (x+y+w+z+u+v)/2
 
-while x or y or w or z or u or v < 0:
-    print("Nota inválida ou notas inválidas foram digitadas, digite novamente")
-    x = int(input("Digite sua nota na diciplina de linguagens, que esteja entre 0 a 1000:"))
-    y = int(input("Digite sua nota na diciplina de códigos, que esteja entre 0 a 1000:"))
-    w = int(input("Digite sua nota na diciplina de ciências humanas, que esteja entre 0 a 1000:"))
-    z = int(input("Digite sua nota na diciplina de matématica, que esteja entre 0 a 1000:"))
-    u = int(input("Digite sua nota na diciplina de ciências da natureza, que esteja entre 0 a 1000:"))
-    v = int(input("Digite sua nota de redação, que esteja entre 0 a 1000:"))
+
+while x < 0 or x > 1000 or y < 0 or y > 1000 or w < 0 or w > 1000 or z < 0 or z > 1000 or u < 0 or u > 1000 or v < 0 or v > 1000:
+    print("Nota inválida ou notas inválidas foram digitadas, por favor, digite novamente")
+    x = int(input("Digite sua nota na disciplina de linguagens, que esteja entre 0 a 1000: "))
+    y = int(input("Digite sua nota na disciplina de códigos, que esteja entre 0 a 1000: "))
+    w = int(input("Digite sua nota na disciplina de ciências humanas, que esteja entre 0 a 1000: "))
+    z = int(input("Digite sua nota na disciplina de matemática, que esteja entre 0 a 1000: "))
+    u = int(input("Digite sua nota na disciplina de ciências da natureza, que esteja entre 0 a 1000: "))
+    v = int(input("Digite sua nota de redação, que esteja entre 0 a 1000: "))
+
+media = (x + y + w + z + u) / 5
+print("Sua média nas notas é:", media)
+
+if v > 0:
+    print("Aprovado na redação")
+else:
+    print("Reprovado na redação por atingir 0")
+
+if media >= 450 and x >= 450 and y >= 450 and w >= 450 and z >= 450 and u >= 450:
+    print("Parabéns, você atingiu pontuações maiores ou iguais a 450 em média na matérias e também na redação, então poderá participar do FIES e do ProUni")   
+else:
+    print("Você não conseguiu atingir o mínimo exigido de média(450), então está reprovado")
 
     
