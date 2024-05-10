@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resultado do IMC</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+      font-size: 50px;
+      margin-top: 30px;
+      color: #333;
+    }
+
+    #resultadoIMC {
+      max-width: 600px;
+      margin: 20px auto;
+      background-color: #fff;
+      border-radius: 5px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    p {
+      margin: 10px 0;
+    }
+
+    .resultado {
+      text-align: center;
+      font-size: 24px;
+      color: #333;
+    }
+
+    .categoria {
+      text-align: center;
+      font-size: 18px;
+      color: #555;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>RESULTADO</h1>
+  <div id="resultadoIMC"></div>
+
+  <script>
+    function calcularIMC() {
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+
+      const altura = parseFloat(urlParams.get('idade'));
+      const peso = parseFloat(urlParams.get('peso'));
+
+      const imc = peso / (altura * altura);
+
+      const resultadoIMC = document.getElementById("resultadoIMC");
+      resultadoIMC.innerHTML = "<p class='resultado'>Seu IMC é: " + imc.toFixed(2) + "</p>";
+
+      if (imc < 18.5) {
+        resultadoIMC.innerHTML += "<p class='categoria'>Abaixo do peso</p>";
+      } else if (imc < 24.9) {
+        resultadoIMC.innerHTML += "<p class='categoria'>Peso normal</p>";
+      } else if (imc < 29.9) {
+        resultadoIMC.innerHTML += "<p class='categoria'>Sobrepeso</p>";
+      } else if (imc < 34.9) {
+        resultadoIMC.innerHTML += "<p class='categoria'>Obesidade grau 1</p>";
+      } else if (imc < 39.9) {
+        resultadoIMC.innerHTML += "<p class='categoria'>Obesidade grau 2 (severa)</p>";
+      } else {
+        resultadoIMC.innerHTML += "<p class='categoria'>Obesidade grau 3 (mórbida)</p>";
+      }
+    }
+
+    calcularIMC();
+  </script>
+</body>
+
+</html>
