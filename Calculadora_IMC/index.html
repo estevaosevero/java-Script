@@ -1,1 +1,45 @@
+<!DOCTYPE html>
+<html>
 
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IMC</title>
+  <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <h1> CALCULADORA DE IMC</h1>
+  <center>
+    <div class="dois">
+      <h2>DIGITE SUA ALTURA</h2>
+      <input type="number" id="idade" placeholder="idade" min="0" max="1000">
+
+      <h2>DIGITE SEU PESO</h2>
+      <input type="number" id="peso" placeholder="peso" min="0" max="1000">
+
+
+      <div id="resultado">
+        <button id="calcularButton" onclick="verificarPreenchimento()"> <h3> RESULTADO </h3></div></button>
+      </div>
+    </div>
+  </center>
+
+  <script>
+    function verificarPreenchimento() {
+      const idade = document.getElementById("idade").value;
+      const peso = document.getElementById("peso").value;
+
+      if (idade === "" || peso === "") {
+        alert("Dados indefinidos, por favor, preencha todos os campos corretamente.");
+
+      } else if (idade < 0 || idade > 1000 || peso < 0 || peso > 1000) {
+        alert("Dado irreal ou dados irreais foram digitados, por favor, digite novamente");
+      } else {
+        window.location.href = "calculo.html?idade=" + idade + "&peso=" + peso;
+      }
+    }
+  </script>
+</body>
+
+</html>
