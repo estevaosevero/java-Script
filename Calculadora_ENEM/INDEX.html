@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resultado ENEM</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #F0F8FF;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 50px;
+      font-family: Garamond;
+      font-size: 70px;
+      text-shadow: 1px 1px black;
+    }
+
+    #mediaResultado {
+      background-color: #fff;
+      border-radius: 18px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      max-width: 450px;
+      margin: 40px auto;
+      padding: 40px;
+    }
+
+    #mediaResultado p {
+      text-align: center;
+       font-size: 20px;
+      margin: 0 0 10px;
+    }
+
+    .aprovado {
+      font-size: 20px;
+      text-shadow: 1px 1px green;
+      color: #008000;
+    }
+
+    .ok {
+      font-size: 20px;
+      text-shadow: 1px 1px red;
+      color: #FF0000;
+    }
+
+    .tirou {
+      font-size: 20px;
+      text-shadow: 1px 1px red;
+      color: #FF0000;
+
+    }
+
+    .reprovado {
+      font-size: 20px;
+      text-shadow: 1px 1px red;
+      color: #FF0000;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>RESULTADO DO ENEM</h1>
+  <div id="mediaResultado"></div>
+
+  <script>
+    function calcularMedia() {
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+
+      const linguagens1 = parseInt(urlParams.get('linguagens1'));
+      const linguagens2 = parseInt(urlParams.get('linguagens2'));
+      const linguagens3 = parseInt(urlParams.get('linguagens3'));
+      const linguagens4 = parseInt(urlParams.get('linguagens4'));
+      const linguagens5 = parseInt(urlParams.get('linguagens5'));
+      const redacao = parseInt(urlParams.get('redacao'));
+
+      const media = (linguagens1 + linguagens2 + linguagens3 + linguagens4 + linguagens5) / 5;
+
+      const mediaResultado = document.getElementById("mediaResultado");
+      mediaResultado.innerHTML = "<p>Sua média nas notas é: <strong>" + media.toFixed(2) + "</strong></p>";
+
+      if (media >= 450 && redacao > 0) {
+        mediaResultado.innerHTML += "<p class='aprovado'>Parabéns! Você está aprovado. Pode participar do FIES e do ProUni.</p>";
+      } else if (media < 450 && redacao > 0) {
+        mediaResultado.innerHTML += "<p class='ok'>Conseguiu passar em redação, mas não conseguiu atingir a média exigida nas matérias, então está reprovado.</p>";
+      } else if (media >= 450 && redacao === 0) {
+        mediaResultado.innerHTML += "<p class='tirou'>Conseguiu pontuação maior ou igual a 450 em média nas matérias, mas em redação tirou 0, então está reprovado.</p>";
+      } else {
+        mediaResultado.innerHTML += "<p class='reprovado'>Você não atingiu a média mínima exigida e zerou a redação. Infelizmente, está reprovado.</p>";
+      }
+    }
+
+    calcularMedia();
+  </script>
+
+</body>
+
+</html>
